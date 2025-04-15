@@ -92,12 +92,10 @@ const ProductForm = (props: Props) => {
     }),
     [product]
   );
-
   const methods = useForm<IProduct>({
     resolver: zodResolver(productSchema),
     defaultValues,
   });
-
   const {
     handleSubmit,
     formState: { errors },
