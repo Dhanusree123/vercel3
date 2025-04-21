@@ -17,9 +17,16 @@ const PageLayoutEditPage = () => {
   const handleEdit = (data: IPageLayout) => {
     const layouts = getPageLayoutsFromLocal();
     // console.log(layouts);
+    const newData = {
+      id: data?.id,
+      title: data?.title,
+      path: data?.path,
+      components: data?.components,
+    };
+    console.log(newData);
     const updatedone = {
       ...layouts,
-      [id!]: data,
+      [id!]: newData,
     };
     // console.log(updatedone, data);
     setPageLayoutsToLocal(updatedone);
