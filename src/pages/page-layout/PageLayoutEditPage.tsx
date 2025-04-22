@@ -10,33 +10,31 @@ import {
 import { Box, Card, CardContent, Typography } from "@mui/material";
 
 const PageLayoutEditPage = () => {
-  const { id } = useParams();
+  const { id } = useParams<{ id: string }>();
 
   const [pageLayout, setPageLayout] = useState<IPageLayout | null>(null);
 
-  const handleEdit = (data: IPageLayout) => {
-    const layouts = getPageLayoutsFromLocal();
-    // console.log(layouts);
-    const newData = {
-      id: data?.id,
+  const handleEditPageLayout = (data: IPageLayout) => {
+    const pageLayouts = getPageLayoutsFromLocal();
+
+    const updatedPageLayout: IPageLayout = {
+      id: id ? id : "",
       title: data?.title,
-      path: data?.path,
+      path: pageLayout?.path ? pageLayout?.path : "",
       components: data?.components,
     };
-    console.log(newData);
-    const updatedone = {
-      ...layouts,
-      [id!]: newData,
+
+    const updatedPageLayouts = {
+      ...pageLayouts,
+      [id!]: updatedPageLayout,
     };
-    // console.log(updatedone, data);
-    setPageLayoutsToLocal(updatedone);
+    setPageLayoutsToLocal(updatedPageLayouts);
     toast.success("Pagelayout updated successfully");
   };
 
   useEffect(() => {
-    const layouts = getPageLayoutsFromLocal();
-    const selectedpagelayout = layouts?.[id!];
-    console.log(selectedpagelayout);
+    const pagelayouts = getPageLayoutsFromLocal();
+    const selectedpagelayout = pagelayouts?.[id!];
     setPageLayout(selectedpagelayout);
   }, [id]);
 
@@ -64,7 +62,7 @@ const PageLayoutEditPage = () => {
             <PageLayoutForm
               pageLayout={pageLayout}
               isEdit
-              onSubmit={handleEdit}
+              onSubmit={handleEditPageLayout}
             />
           </CardContent>
         </Card>

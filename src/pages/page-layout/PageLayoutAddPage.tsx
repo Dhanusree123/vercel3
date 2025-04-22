@@ -9,16 +9,16 @@ import { nanoid } from "nanoid";
 import { Box, Card, CardContent, Typography } from "@mui/material";
 
 const PageLayoutAddPage = () => {
-  const handleAdd = (data: IPageLayout) => {
+  const handleAddPageLayout = (data: IPageLayout) => {
     const id = nanoid();
-    const newLayout = {
+    const newPageLayout = {
       ...data,
       id,
     };
 
-    const existingData = getPageLayoutsFromLocal();
+    const existingPageLayouts = getPageLayoutsFromLocal();
 
-    const isDuplicate = Object.values(existingData).some(
+    const isDuplicate = Object.values(existingPageLayouts).some(
       (layout: IPageLayout) => layout.path === data.path && layout.id !== id
     );
 
@@ -27,8 +27,8 @@ const PageLayoutAddPage = () => {
       return;
     }
     const updated = {
-      ...existingData,
-      [id]: newLayout,
+      ...existingPageLayouts,
+      [id]: newPageLayout,
     };
     setPageLayoutsToLocal(updated);
     toast.success("PageLayout added successfully");
@@ -48,7 +48,7 @@ const PageLayoutAddPage = () => {
           <Typography variant="h5" fontWeight="bold" mb={3} textAlign="center">
             Add New Page Layout
           </Typography>
-          <PageLayoutForm isEdit={false} onSubmit={handleAdd} />
+          <PageLayoutForm isEdit={false} onSubmit={handleAddPageLayout} />
         </CardContent>
       </Card>
     </Box>

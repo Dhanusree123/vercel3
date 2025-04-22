@@ -18,6 +18,7 @@ const HomePage = () => {
         sx={{ mt: 4 }}
         component={Link}
         href="/page-layouts"
+        disableRipple
       >
         Go To PageLayouts
       </Button>

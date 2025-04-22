@@ -1,6 +1,6 @@
 import { IPageLayout } from "../types/page-layout"
 
-export const getPageLayoutsFromLocal = ():Record<string,IPageLayout> => {
+export const getPageLayoutsFromLocal = () :Record<string,IPageLayout> => {
     const data = JSON.parse(localStorage.getItem("pagelayouts")|| "{}")
     return data;
 }

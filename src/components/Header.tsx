@@ -24,6 +24,7 @@ const Header = () => {
           component={Link}
           href="/"
           sx={{ fontWeight: 500, color: "#fff" }}
+          disableRipple
         >
           <Home />
         </Button>
@@ -31,6 +32,7 @@ const Header = () => {
           component={Link}
           href="/page-layouts"
           sx={{ fontWeight: 500, color: "#fff" }}
+          disableRipple
         >
           <Typography>Pagelayouts</Typography>
         </Button>
@@ -41,6 +43,7 @@ const Header = () => {
           component={Link}
           href="/page-layouts/add"
           sx={{ fontWeight: 500, color: "#fff" }}
+          disableRipple
         >
           <Typography>Add</Typography>
         </Button>
