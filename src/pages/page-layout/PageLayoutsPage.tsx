@@ -1,11 +1,4 @@
-import {
-  Box,
-  Card,
-  CardContent,
-  Divider,
-  Stack,
-  Typography,
-} from "@mui/material";
+import { Box, Card, CardContent, Stack, Typography } from "@mui/material";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { IPageLayout } from "../../types/page-layout";
@@ -31,7 +24,7 @@ const PageLayoutsPage = () => {
 
   return (
     <>
-      <Box sx={{ maxWidth: 800, mx: "auto", p: 2 }}>
+      <Box sx={{ maxWidth: 1200, mx: "auto", p: 2 }}>
         <Card sx={{ mb: 4, boxShadow: 3 }}>
           <CardContent>
             <Typography
@@ -42,7 +35,6 @@ const PageLayoutsPage = () => {
             >
               {pageLayout?.title}
             </Typography>
-            <Divider sx={{ mb: 2 }} />
             <Typography variant="body1" mb={1}>
               ID: {pageLayout?.id}
             </Typography>

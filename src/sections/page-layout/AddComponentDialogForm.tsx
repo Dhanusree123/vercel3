@@ -39,7 +39,7 @@ const AddComponentDialogForm = (props: Props) => {
     () => ({
       id: componentData?.id || "",
       title: componentData?.title || "",
-      active: componentData?.active || false,
+      active: componentData?.active || true,
     }),
     [componentData]
   );
@@ -106,21 +106,24 @@ const AddComponentDialogForm = (props: Props) => {
                 label="Component Title"
                 helperText={errors.title && errors.title.message}
               />
-              <Controller
-                name="active"
-                control={control}
-                render={({ field, fieldState: { error } }) => (
-                  <>
-                    <FormControlLabel
-                      control={<Switch {...field} checked={field.value} />}
-                      label="Active"
-                    />
-                    {error && (
-                      <FormHelperText error>{error?.message}</FormHelperText>
-                    )}
-                  </>
-                )}
-              />
+              {isEdit && (
+                <Controller
+                  name="active"
+                  control={control}
+                  render={({ field, fieldState: { error } }) => (
+                    <>
+                      <FormControlLabel
+                        control={<Switch {...field} checked={field.value} />}
+                        label="Active"
+                      />
+                      {error && (
+                        <FormHelperText error>{error?.message}</FormHelperText>
+                      )}
+                    </>
+                  )}
+                />
+              )}
+
               <DialogActions sx={{ px: 0 }}>
                 <Button type="submit" variant="contained">
                   {isEdit ? "Update" : "Add"}

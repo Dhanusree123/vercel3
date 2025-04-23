@@ -65,6 +65,7 @@ const PageLayoutForm = (props: Props) => {
     }
   }, [pageLayout, setValue, isEdit]);
 
+  console.log(pageLayout);
   return (
     <>
       <FormProvider methods={methods} onSubmit={handleSubmit(onSubmit)}>

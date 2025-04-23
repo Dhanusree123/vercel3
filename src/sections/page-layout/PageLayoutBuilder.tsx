@@ -89,13 +89,6 @@ const PageLayoutBuilder = (props: Props) => {
           mt: 2,
         }}
       >
-        <Button
-          onClick={openAddDialog}
-          sx={{ border: "1px dashed black", p: 1.5 }}
-        >
-          <Add />
-          Add Component
-        </Button>
         {components.length > 0 && (
           <DndContext sensors={sensors} onDragEnd={handleDragEnd}>
             <SortableContext
@@ -116,6 +109,13 @@ const PageLayoutBuilder = (props: Props) => {
             </SortableContext>
           </DndContext>
         )}
+        <Button
+          onClick={openAddDialog}
+          sx={{ border: "1px dashed black", p: 1.5 }}
+        >
+          <Add />
+          Add Component
+        </Button>
       </Stack>
 
       <AddComponentDialogForm

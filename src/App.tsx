@@ -18,8 +18,8 @@ const App = () => {
         <Route path="/" element={<HomePage />} />
         <Route path="/page-layouts/add" element={<PageLayoutAddPage />} />
         <Route path="/page-layouts" element={<PageLayoutListPage />} />
-        <Route path="/page-layouts/:id" element={<PageLayoutEditPage />} />
-        <Route path="/page-layout/:path" element={<PageLayoutsPage />} />
+        <Route path="/page-layouts/:id/edit" element={<PageLayoutEditPage />} />
+        <Route path="/:path" element={<PageLayoutsPage />} />
       </Routes>
     </>
   );

@@ -64,7 +64,7 @@ const PageLayoutListPage = () => {
                         textDecoration: "underline",
                       },
                     }}
-                    onClick={() => navigate(`/page-layout/${layout.path}`)}
+                    onClick={() => navigate(`/${layout.path}`)}
                   >
                     {layout.path}
                   </TableCell>
@@ -72,7 +72,7 @@ const PageLayoutListPage = () => {
                     <IconButton
                       size="small"
                       onClick={() =>
-                        layout.id && navigate(`/page-layouts/${layout.id}`)
+                        layout.id && navigate(`/page-layouts/${layout.id}/edit`)
                       }
                     >
                       <Edit />
